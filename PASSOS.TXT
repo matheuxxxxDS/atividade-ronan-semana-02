@@ -1,0 +1,3 @@
+configurar Git Local:
+git config --global user.name MatheuxxxxDS
+git config --global user.email matheushe94@gmail.com
