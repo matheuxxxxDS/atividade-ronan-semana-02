@@ -4,22 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercício 2</title>
-    <script language="javascript">
-        function mudarTexto(imagem){
-            let texto = "";
-            if(imagem === "imagem1.jpg") {
-                texto = "<b><br>Banco de Dados</b>";
-            } else if(imagem === "imagem2.jpg") {
-                texto = "<b><br>Programação Web</b>";
-            }
-            document.getElementById("saida").innerHTML = texto;
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
         }
-    </script>
+        #container-imagem {
+            position: relative;
+            text-align: center;
+        }
+        img {
+            width: 500px;
+            height: auto;
+        }
+        .texto-imagem {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        #titulo-imagem {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h3>Texto e Imagem</h3>
-    <hr>
-    <img src="imagem1.jpg" alt="Imagem 1" id="imagem" width="500" onclick="mudarTexto('imagem1.jpg')" />
-    <div id="saida"><b><br>Banco de Dados</b></div>
+    <h2></h2>
+    <div id="container-imagem">
+        <img src="" alt="Imagem" id="imagem" />
+        <div id="texto-imagem" class="texto-imagem"></div>
+        <div id="titulo-imagem"></div>
+    </div>
+    <script>
+        const imagens = [
+            { src: "img/imagem1-tcc.jpg", titulo: "TCC"},
+            { src: "img/imagem2-tcc.jpg", titulo:"Pinguin TCC" },
+            { src: "img/imagem3-tcc.jpg", titulo: "Aprendendo TCC" }
+        ];
+
+        function trocarImagem() {
+            const indiceAleatorio = Math.floor(Math.random() * imagens.length);
+            const imagemSelecionada = imagens[indiceAleatorio];
+            document.getElementById("imagem").src = imagemSelecionada.src;
+            document.getElementById("titulo-imagem").textContent = imagemSelecionada.titulo;
+            document.getElementById("texto-imagem").textContent = imagemSelecionada.texto;
+        }
+
+        window.onload = trocarImagem;
+    </script>
 </body>
 </html>

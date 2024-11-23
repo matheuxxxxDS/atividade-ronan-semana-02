@@ -7,6 +7,18 @@
 </head>
 <body>
     <h2>Imagem do semestre</h2>
-    <img src="img/image1.jpg.jpg" alt="Imagem 1" id="imagem" width="500" />
+    <img src="" alt="Imagem" id="imagem" width="500" />
+    <script>
+        const imagens = [
+            "img/imagem1-tcc.jpg",
+            "img/imagem2-tcc.png",
+            "img/imagem3-tcc.jpg"
+        ];
+        function trocarImagem() {
+            const indiceAleatorio = Math.floor(Math.random() * imagens.length);
+            document.getElementById("imagem").src = imagens[indiceAleatorio];
+        }
+        window.onload = trocarImagem;
+    </script>
 </body>
 </html>
